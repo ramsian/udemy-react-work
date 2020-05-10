@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import classes from './Person.css';
-import Persons from '../Persons';
 
 class Person extends Component {
   render() {
