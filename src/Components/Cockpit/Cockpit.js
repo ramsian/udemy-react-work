@@ -12,6 +12,9 @@ const cockpit = (props) => {
 
         //Passing list of arguments to the useEffect so that it gets fired only when the passed props are changed.
         //Passig an empty argument will fire the request only for the first time.
+        return () => {
+            console.log('{Cockpit.js} clean-up work using useEffect');
+        };
     }, []);
 
     let btnClass= '';
