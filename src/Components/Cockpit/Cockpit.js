@@ -6,7 +6,7 @@ const cockpit = (props) => {
         console.log('{Cockpit.js} useEffect');
         //HTTP request if any
         //With this set-up, the below call happens every time the component is rendered.
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             alert('Saved data to cloud.')
         }, 1000);
 
@@ -14,6 +14,7 @@ const cockpit = (props) => {
         //Passig an empty argument will fire the request only for the first time.
         return () => {
             console.log('{Cockpit.js} clean-up work using useEffect');
+            clearTimeout(timer);
         };
     }, []);
 
@@ -40,4 +41,4 @@ const cockpit = (props) => {
     )
 };
 
-export default cockpit;
+export default React.memo(cockpit);
