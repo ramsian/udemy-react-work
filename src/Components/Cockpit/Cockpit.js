@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = (props) => {
+    useEffect(() => {
+        console.log('{Cockpit.js} useEffect');
+        //HTTP request if any
+        //With this set-up, the below call happens every time the component is rendered.
+        setTimeout(() => {
+            alert('Saved data to cloud.')
+        }, 1000);
+
+        //Passing list of arguments to the useEffect so that it gets fired only when the passed props are changed.
+        //Passig an empty argument will fire the request only for the first time.
+    }, []);
+
     let btnClass= '';
     if(props.showPersons) {
         btnClass = classes.Red;
