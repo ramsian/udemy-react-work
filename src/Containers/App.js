@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import Persons from '../Components/Persons/Persons';
 import Cockpit from '../Components/Cockpit/Cockpit';
-import WithClass from './../hoc/WithClass';
+import withClass from './../hoc/WithClass';
+import Aux from './../hoc/Auxillary';
 
 class App extends Component {
   constructor(props) {
@@ -88,13 +89,13 @@ class App extends Component {
     }
 
     return (
-      <WithClass classes={classes.App}>
+      <Aux>
         <button onClick={this.removeCockpit}>Remove Cockpit</button>
         {this.state.showCockpit ? (<Cockpit title={this.props.appTitle} showPersons={this.state.showPersons} persons={this.state.persons} clicked={this.togglePersonsHandler}></Cockpit>) : null}
         {persons}
-      </WithClass>
+      </Aux>
     );
   }
 }
 
-export default App;
+export default withClass(App, classes.App);
